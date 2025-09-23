@@ -13,7 +13,7 @@ logging.basicConfig(
     format = "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
 )
 
-ORS_API_KEY = os.getenv("ORS_API_KEY", "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImEzMTJjM2YzNWUwODQ4NjRiZGMwOWI1OTllMWZlZmRiIiwiaCI6Im11cm11cjY0In0=")
+ORS_API_KEY = os.getenv("ORS_API_KEY", "my_ors_api_key")
 
 def haversine_distance(lat1, lon1, lat2, lon2):
     R = 6371
