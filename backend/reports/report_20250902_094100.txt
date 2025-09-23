@@ -1,0 +1,62 @@
+
+
+AMBULANCE DISPATCH REPORT
+
+Date and Time: 2025-09-02 09:41:00
+
+--- Patient Information ---
+Caller ID:       9876543210
+Location:        Lat: 22.3072, Lng: 73.1812
+Emergency Level: 3
+
+--- Dispatch Analysis ---
+Haversine Calculation Time: 6.2169 ms
+Qualified Ambulances Found: 40
+
+--- Qualified Ambulances (sorted by distance) ---
+Ambulance_ID Category  Emergency_Level  Distance_km
+     AMB_001   Type B              3.0        46.33
+     AMB_004   Type B              3.0        40.22
+     AMB_005   Type B              3.0        42.24
+     AMB_006   Type B              3.0        19.19
+     AMB_007   Type C              4.0       242.77
+     AMB_009   Type C              4.0         5.04
+     AMB_010   Type C              4.0         5.39
+     AMB_014   Type C              4.0         5.09
+     AMB_015   Type C              4.0         6.32
+     AMB_016   Type C              4.0         4.42
+     AMB_017   Type C              4.0         4.41
+     AMB_019   Type C              4.0         6.05
+     AMB_020   Type C              4.0         1.07
+     AMB_021   Type C              4.0         6.61
+     AMB_024   Type C              4.0        22.97
+     AMB_025   Type C              4.0        16.49
+     AMB_026   Type C              4.0        22.97
+     AMB_029   Type C              4.0         3.39
+     AMB_031   Type C              4.0         1.09
+     AMB_034   Type C              4.0         3.47
+     AMB_035   Type C              4.0         1.09
+     AMB_037   Type C              4.0        40.79
+     AMB_038   Type C              4.0        19.06
+     AMB_040   Type C              4.0       242.77
+     AMB_041   Type B              3.0        22.97
+     AMB_043   Type B              3.0        40.22
+     AMB_045   Type B              3.0         9.55
+     AMB_048   Type B              3.0         9.21
+     AMB_050   Type B              3.0        40.39
+     AMB_051   Type B              3.0        42.25
+     AMB_052   Type B              3.0        51.62
+     AMB_053   Type B              3.0         9.69
+     AMB_054   Type B              3.0        22.76
+     AMB_061   Type C              4.0        23.70
+     AMB_063   Type B              3.0        11.88
+     AMB_065   Type B              3.0        11.44
+     AMB_067   Type B              3.0        13.92
+     AMB_068   Type B              3.0        22.97
+     AMB_071   Type B              3.0        12.32
+     AMB_074   Type B              3.0        46.33
+
+--- FINAL DISPATCH DECISION ---
+Dispatched Unit ID: AMB_020
+Distance:           1.07 km
+--------------------------------------------------

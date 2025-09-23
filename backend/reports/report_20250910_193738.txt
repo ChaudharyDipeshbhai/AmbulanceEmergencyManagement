@@ -1,0 +1,42 @@
+
+
+AMBULANCE DISPATCH REPORT
+
+Date and Time: 2025-09-10 19:37:38
+
+--- Patient Information ---
+Caller ID:       9662742767
+Location:        Lat: 22.3, Lng: 73.2065
+Emergency Level: 2
+
+--- Dispatch Analysis ---
+Haversine Calculation Time: 3.5450 ms
+Qualified Ambulances Found: 10
+
+--- Shortlisted Ambulances (Top 10 by Haversine Distance) ---
+Ambulance_ID  Emergency_Level  haversine_km
+     AMB_035                3          1.63
+     AMB_031                3          1.64
+     AMB_011                4          1.66
+     AMB_020                3          1.66
+     AMB_033                4          1.66
+     AMB_032                4          1.71
+     AMB_016                3          1.77
+     AMB_017                3          1.77
+     AMB_018                4          1.77
+     AMB_014                3          2.74
+
+--- ORS Route Distance & ETA (for shortlisted ambulances) ---
+Ambulance_ID  Route_Distance_km  ETA_min
+     AMB_014               3.44      4.7
+
+ORS API Total Time: 14442.2755 ms
+Total Dispatch Time: 14446.4203 ms
+
+--- FINAL DISPATCH DECISION ---
+Dispatched Unit ID: AMB_014
+Emergency Level:    3
+Haversine Dist:     2.74 km
+Route Distance:     3.44 km
+Estimated ETA:      4.7 min
+--------------------------------------------------

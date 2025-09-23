@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+{% block title %}MediMap - Find Healthcare & Get Medical Assessment{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section bg-gradient-medical text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="fas fa-heartbeat me-3"></i>
+                    Find Healthcare Fast
+                </h1>
+                <p class="lead mb-4">
+                    Get instant medical assessment and find the right healthcare facility near you. 
+                    Our intelligent triage system helps prioritize your care based on symptoms and condition severity.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#triage-section" class="btn btn-light btn-lg">
+                        <i class="fas fa-user-md me-2"></i>Start Health Assessment
+                    </a>
+                    <a href="#upload-section" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-database me-2"></i>Manage Data
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="hero-icon-container">
+                    <i class="fas fa-hospital display-1 text-white opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Emergency Alert -->
+<div class="container-fluid bg-danger text-white py-2">
+    <div class="container">
+        <div class="text-center">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <strong>Medical Emergency?</strong> Call <a href="tel:911" class="text-white fw-bold">911</a> immediately
+        </div>
+    </div>
+</div>
+
+<!-- Patient Triage Section -->
+<section id="triage-section" class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-6 fw-bold text-medical-dark mb-3">
+                    <i class="fas fa-user-md text-medical-primary me-3"></i>
+                    Health Assessment
+                </h2>
+                <p class="lead text-muted">
+                    Complete a quick medical assessment to determine the urgency of your condition 
+                    and get personalized healthcare facility recommendations.
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-medical-primary text-white py-3">
+                        <h4 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Patient Assessment Form</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="triageForm">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Current Location</label>
+                                    <button type="button" class="btn btn-outline-secondary w-100" id="getLocationBtn">
+                                        <i class="fas fa-location-arrow me-2"></i>Use My Location
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-12">
+                                    <label for="hospitalLevel" class="form-label fw-semibold">Preferred Hospital Level</label>
+                                    <select id="hospitalLevel" class="form-select">
+                                        <option value="">Select level (1-4)</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 d-grid">
+                                    <button type="button" id="nearestHospitalsBtn" class="btn btn-medical-primary">
+                                        <i class="fas fa-search-location me-2"></i>Find Nearest Hospitals
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Triage Results -->
+        <div id="triageResults" class="mt-5" style="display: none;">
+            <div class="card shadow-lg border-0">
+                <div class="card-header py-3" id="triageResultsHeader">
+                    <h4 class="mb-0"><i class="fas fa-diagnoses me-2"></i>Assessment Results</h4>
+                </div>
+                <div class="card-body p-4" id="triageResultsBody">
+                    <!-- Results will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Data Management Section -->
+<section id="upload-section" class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-6 fw-bold text-medical-dark mb-3">
+                    <i class="fas fa-database text-medical-primary me-3"></i>
+                    Data Management
+                </h2>
+                <p class="lead text-muted">
+                    Upload hospital data files to expand the database and improve search results.
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow border-0">
+                    <div class="card-header bg-medical-secondary text-white">
+                        <h5 class="mb-0"><i class="fas fa-upload me-2"></i>Upload Hospital Data</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="uploadForm" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="hospitalFile" class="form-label fw-semibold">Excel File (XLS/XLSX)</label>
+                                <input type="file" class="form-control" id="hospitalFile" accept=".xls,.xlsx" multiple required>
+                                <div class="form-text">
+                                    Upload Excel files containing hospital data with columns: name, latitude, longitude, level, address, phone
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between">
+                                <button type="submit" class="btn btn-medical-primary">
+                                    <i class="fas fa-upload me-2"></i>Upload Data
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="downloadTemplate">
+                                    <i class="fas fa-download me-2"></i>Download Template
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Upload Status -->
+                        <div id="uploadStatus" class="mt-3" style="display: none;">
+                            <!-- Status will be shown here -->
+                        </div>
+
+                        <!-- Hospital Statistics -->
+                        <div id="hospitalStats" class="mt-4">
+                            <h6 class="text-medical-primary">Database Statistics</h6>
+                            <div id="statsContent" class="text-muted">
+                                Loading statistics...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay" style="display: none;">
+    <div class="loading-content">
+        <div class="spinner-border text-primary mb-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p>Processing your request...</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Initialize the application when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+});
+</script>
+{% endblock %}

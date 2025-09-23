@@ -1,0 +1,5 @@
+{
+  "description": "An AI-powered Emergency Triage Assistant that guides users through a decision tree to determine a patient's emergency severity level.",
+  "requestFramePermissions": [],
+  "name": "Ambulance management preview"
+}

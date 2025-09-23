@@ -1,0 +1,42 @@
+
+
+AMBULANCE DISPATCH REPORT
+
+Date and Time: 2025-09-02 09:41:58
+
+--- Patient Information ---
+Caller ID:       9876543210
+Location:        Lat: 22.3072, Lng: 73.1812
+Emergency Level: 4
+
+--- Dispatch Analysis ---
+Haversine Calculation Time: 2.1752 ms
+Qualified Ambulances Found: 20
+
+--- Qualified Ambulances (sorted by distance) ---
+Ambulance_ID Category  Emergency_Level  Distance_km
+     AMB_007   Type C              4.0       242.77
+     AMB_009   Type C              4.0         5.04
+     AMB_010   Type C              4.0         5.39
+     AMB_014   Type C              4.0         5.09
+     AMB_015   Type C              4.0         6.32
+     AMB_016   Type C              4.0         4.42
+     AMB_017   Type C              4.0         4.41
+     AMB_019   Type C              4.0         6.05
+     AMB_021   Type C              4.0         6.61
+     AMB_024   Type C              4.0        22.97
+     AMB_025   Type C              4.0        16.49
+     AMB_026   Type C              4.0        22.97
+     AMB_029   Type C              4.0         3.39
+     AMB_031   Type C              4.0         1.09
+     AMB_034   Type C              4.0         3.47
+     AMB_035   Type C              4.0         1.09
+     AMB_037   Type C              4.0        40.79
+     AMB_038   Type C              4.0        19.06
+     AMB_040   Type C              4.0       242.77
+     AMB_061   Type C              4.0        23.70
+
+--- FINAL DISPATCH DECISION ---
+Dispatched Unit ID: AMB_031
+Distance:           1.09 km
+--------------------------------------------------
