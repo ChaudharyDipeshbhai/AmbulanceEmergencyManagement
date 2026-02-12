@@ -1,43 +1,109 @@
-# 🚑 Ambulance Emergency Management & Hospital System
+Ambulance Emergency Management - Setup & Run Guide
+This project consists of three main components that need to be run simultaneously:
 
-This repository contains multiple modules for managing ambulance dispatch and hospital operations.  
-The project is divided into **frontend** and **backend** systems for an Ambulance Dispatch System, along with a **hospital management system** (MediMap/Model-B).
+Backend (Ambulance Dispatch API - Python/FastAPI)
+Frontend (Ambulance Dispatch UI - React/Vite)
+Hospital Management System (Model-B/MediMapRedo - Python/Flask)
+Prerequisites
+Python 3.11+ installed.
+Node.js 18+ installed.
+Git (optional, for cloning).
+1. Backend Setup (Ambulance Dispatch)
+This service handles the logic for ambulance dispatching.
 
----
+Navigate to the backend directory:
 
-## 📂 Project Structure
+bash
+cd backend
+Create a virtual environment (recommended):
 
-my-project/
-│
+bash
+python -m venv venv
+Activate the virtual environment:
 
-├── frontend/ # Frontend for Ambulance Dispatch System
+Windows:
+bash
+venv\Scripts\activate
+macOS/Linux:
+bash
+source venv/bin/activate
+Install dependencies:
 
-├── backend/ # Backend for Ambulance Dispatch System
+bash
+pip install -r requirements.txt
+Run the server:
 
-├── Model-B/ # Hospital Management System
+bash
+uvicorn app:app --reload
+The backend will start at http://127.0.0.1:8000.
 
-└── README.md # Project documentation
+2. Frontend Setup (Ambulance Dispatch UI)
+This is the user interface for the dispatch system.
 
----
+Open a new terminal and navigate to the frontend directory:
 
-## 🚀 Modules
+bash
+cd frontend
+Install dependencies:
 
-### 1. **Ambulance Dispatch System**
-- **Frontend**: User interface for managing ambulance requests, dispatching, and real-time updates.  
-- **Backend**: Handles data, APIs, and logic for ambulance allocation, routes, and status tracking.  
+bash
+npm install
+Run the development server:
 
-### 2. **Hospital Management System (MediMap / Model-B)**
-- Manages hospital records, patient data, and integration with ambulance services.  
-- Helps streamline communication between hospitals and emergency responders.  
+bash
+npm run dev
+The frontend will be available at http://localhost:5173.
 
----
+3. Hospital Management System (Model-B/MediMapRedo)
+This is a separate module for managing hospital data.
 
-## 👤 Author
-**Name:** Chaudhary Dipeshbhai  
+Open a new terminal and navigate to the project root.
 
----
+Navigate to the MediMapRedo directory:
 
-## 🔮 Future Enhancements
-- Integration between Ambulance Dispatch and Hospital Management  
-- Real-time location tracking and optimization  
-- Analytics and reporting dashboard  
+bash
+cd Model-B/MediMapRedo
+Create a virtual environment (recommended):
+
+bash
+python -m venv venv
+Activate the virtual environment:
+
+Windows:
+bash
+venv\Scripts\activate
+macOS/Linux:
+bash
+source venv/bin/activate
+Install dependencies: This project uses 
+pyproject.toml
+ (managed by tools like pdm, poetry, or uv), but you can install dependencies directly if you extract them or have a requirements file. It seems to rely on Flask and scientific libraries.
+
+Start by installing the core dependencies:
+
+bash
+pip install flask flask-cors flask-sqlalchemy gunicorn psycopg2-binary pandas geopy openpyxl xlrd numpy werkzeug
+Note: If a 
+requirements.txt
+ is missing here, you may need to install based on import errors or use a tool that supports 
+pyproject.toml
+ natively.
+
+Run the application:
+
+bash
+python app.py
+The application will start at http://localhost:5000.
+
+Summary of URLs
+Ambulance Dispatch Frontend: http://localhost:5173
+Ambulance Dispatch Backend: http://localhost:8000
+Hospital Management System: http://localhost:5000
+Troubleshooting
+Port Conflicts: Ensure ports 5000, 8000, and 5173 are free before starting.
+Dependency Issues: If pip install -r requirements.txt fails, try upgrading pip: python -m pip install --upgrade pip.
+CORS Errors: The backend is configured to allow http://localhost:5173. If you run the frontend on a different port, update 
+backend/app.py
+.
+
+Comment
