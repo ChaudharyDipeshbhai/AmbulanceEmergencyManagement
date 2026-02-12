@@ -106,4 +106,34 @@ CORS Errors: The backend is configured to allow http://localhost:5173. If you ru
 backend/app.py
 .
 
-Comment
+Backend (backend/)
+Create/Update requirements.txt with:
+
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+pandas==2.2.2
+numpy==1.26.4
+pydantic==2.8.2
+requests
+openrouteservice
+
+
+
+python-dotenv (Suggested for environment variable management)
+MediMapRedo (Model-B/MediMapRedo/)
+
+
+Create requirements.txt based on pyproject.toml and code analysis:
+
+flask>=3.1.2
+flask-cors>=6.0.1
+pandas>=2.3.2
+numpy>=2.3.2
+geopy>=2.4.1
+openpyxl>=3.1.5
+xlrd>=2.0.2
+werkzeug>=3.1.3
+gunicorn>=23.0.0
+flask-sqlalchemy>=3.1.1
+psycopg2-binary>=2.9.10
+email-validator>=2.3.0
